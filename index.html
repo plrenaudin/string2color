@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Example</title>
+</head>
+<body>
+  <h1>HSL</h1>
+  <div id="hsl"></div>
+
+  <h1>RGB</h1>
+  <div id="rgb"></div>
+
+  <script type="module">
+  import string2color from "./index.js";
+  const lorem =
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sed pellentesque risus. Duis consequat orci justo, vitae eleifend diam dictum suscipit. Quisque posuere, lacus sit amet dignissim tincidunt, leo tellus ultricies risus, sed iaculis magna purus nec ligula. Donec a quam nec augue scelerisque molestie. Mauris laoreet mi et dui varius interdum. Maecenas sodales urna et lectus vestibulum, eu imperdiet sem ullamcorper. Morbi euismod dignissim tempus. Morbi pharetra purus id nunc suscipit tincidunt. Phasellus at ullamcorper erat, quis gravida eros. Praesent vel lectus a purus auctor fringilla et non nibh. Quisque a nulla ornare, porta dui id, dictum dui. Sed ut enim vel leo viverra vulputate at quis tellus. Vivamus at sollicitudin tortor. Curabitur augue velit, aliquam mattis sodales sed, gravida a velit. Suspendisse potenti. Fusce a dui id libero accumsan molestie nec vitae turpis. Proin tempus sapien non velit imperdiet imperdiet. Aliquam sit amet sollicitudin purus. Sed in consequat nulla. Etiam in ligula non enim suscipit eleifend et eget mauris. Donec vestibulum hendrerit libero, ut porta metus vestibulum ut. Nam feugiat metus non lorem cursus ultricies. Phasellus iaculis libero lorem, ut volutpat risus placerat eu. Suspendisse a purus sollicitudin, fermentum libero sed, sagittis turpis. Cras sed augue sit amet turpis facilisis porta. Etiam porttitor justo non velit tristique, non tincidunt eros condimentum. Maecenas eget pretium felis. Quisque ut quam faucibus, ullamcorper nisl sed, ullamcorper lectus. Cras pellentesque urna nec neque tincidunt pretium. Morbi imperdiet, lectus eu accumsan egestas, mi metus tempus massa, venenatis aliquet felis lectus id mi. Suspendisse ligula purus, auctor id quam sit amet, bibendum auctor risus.";
+  document.getElementById("hsl").innerHTML = lorem
+    .split(" ")
+    .map(i => `<span style="background-color:${string2color(i)}">${i}</span>`)
+    .join(" ");
+  document.getElementById("rgb").innerHTML = lorem
+    .split(" ")
+    .map(
+      i =>
+        `<span style="background-color:${string2color(i, {
+          format: "rgb"
+        })}">${i}</span>`
+    )
+    .join(" ");
+</script>
+</body>
+</html>

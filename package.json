@@ -1,0 +1,32 @@
+{
+  "name": "string2color",
+  "version": "1.0.0",
+  "description": "Returns a color for a given string",
+  "main": "index.js",
+  "scripts": {
+    "build": "parcel build index.js",
+    "test": "jest test --testEnvironment=node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/plrenaudin/string2color.git"
+  },
+  "author": "plrenaudin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/plrenaudin/string2color/issues"
+  },
+  "homepage": "https://github.com/plrenaudin/string2color#readme",
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "babel-jest": "^24.1.0",
+    "jest": "^24.1.0",
+    "parcel-bundler": "^1.11.0"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  }
+}
