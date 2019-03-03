@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "parcel build index.js",
-    "test": "jest test --testEnvironment=node"
+    "test": "npm run lint && jest test --testEnvironment=node",
+    "lint": "eslint *.js"
   },
   "repository": {
     "type": "git",
@@ -21,12 +22,35 @@
     "@babel/core": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
     "babel-jest": "^24.1.0",
+    "eslint": "^5.15.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "husky": "^1.3.1",
     "jest": "^24.1.0",
-    "parcel-bundler": "^1.11.0"
+    "parcel-bundler": "^1.11.0",
+    "prettier": "^1.16.4",
+    "pretty-quick": "^1.10.0"
   },
   "babel": {
     "presets": [
       "@babel/preset-env"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged && npm test"
+    }
+  },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "plugins": [
+      "prettier"
+    ],
+    "rules": {
+      "prettier/prettier": "error"
+    },
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module"
+    }
   }
 }

@@ -11,7 +11,7 @@ describe("generate color base test suite", () => {
 
 describe("generate color extended test suite", () => {
   it("generate rgb color", () => {
-    expect(sut("hello", { format: "rgb" })).toEqual("#c780ff");
+    expect(sut("hello", { format: "rgb" })).toEqual("#80ffee");
   });
   it("generate rgb achromatic color", () => {
     expect(sut("hello", { format: "rgb", saturation: 0 })).toEqual("#bfbfbf");
