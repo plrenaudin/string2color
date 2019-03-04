@@ -2,12 +2,24 @@
   "name": "string2color",
   "version": "1.0.0",
   "description": "Returns a color for a given string",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "unpkg": "dist/index.min.js",
   "scripts": {
-    "build": "parcel build index.js",
-    "test": "npm run lint && jest test --testEnvironment=node",
-    "lint": "eslint *.js"
+    "build": "babel index.js -d dist && uglifyjs --compress --mangle --source-map --output dist/index.min.js -- dist/index.js",
+    "test": "npm run lint && jest ./test --testEnvironment=node",
+    "lint": "eslint *.js",
+    "prepublishOnly": "npm test && npm run build"
   },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "string",
+    "color",
+    "string2color",
+    "string to color",
+    "colored hash"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/plrenaudin/string2color.git"
@@ -19,6 +31,7 @@
   },
   "homepage": "https://github.com/plrenaudin/string2color#readme",
   "devDependencies": {
+    "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
     "babel-jest": "^24.1.0",
@@ -28,7 +41,8 @@
     "jest": "^24.1.0",
     "parcel-bundler": "^1.11.0",
     "prettier": "^1.16.4",
-    "pretty-quick": "^1.10.0"
+    "pretty-quick": "^1.10.0",
+    "uglify-js": "^3.4.9"
   },
   "babel": {
     "presets": [
@@ -39,6 +53,9 @@
     "hooks": {
       "pre-commit": "pretty-quick --staged && npm test"
     }
+  },
+  "jest": {
+    "collectCoverage": true
   },
   "eslintConfig": {
     "extends": "eslint:recommended",
